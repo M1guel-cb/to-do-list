@@ -45,8 +45,11 @@ function mostrarValores() {
 }
 
 function deleteValor(data) {
-    let index = api.findIndex((x) => x.name == data);
-    api.splice(index, 1);
+    for (task in api) {
+        if (api[task].nome == data) {
+            api.splice(task, 1)
+        }
+    }
     localStorage.setItem("to-do-list-m1guelcb", JSON.stringify(api));
     mostrarValores();
 }
